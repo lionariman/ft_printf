@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 06:29:17 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/04 19:13:31 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/04 21:58:51 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_flag_minus(char *s, new_list *list)
 {
 	list->minus = 1;
 	list->zero = 0;
-	s++;
 	return (s);
 }
 
