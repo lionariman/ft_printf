@@ -25,5 +25,6 @@ new_list	list_flag_type(void);
 int			ft_processor(char *s, va_list argptr, new_list *list);
 int			ft_char_type(va_list argptr, new_list *list);
 int			ft_dec_type(va_list argptr, new_list *list);
+int			ft_istype(char *c);
 
 #endif

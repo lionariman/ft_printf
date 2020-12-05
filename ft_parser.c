@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 17:46:58 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/04 22:07:39 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/05 19:29:20 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_istype(char *c)
+int		ft_istype(char *c)
 {
 	if (*c == 'c' || *c == 's' || *c == 'd' || *c == 'i' || *c == 'p' ||
 		*c == 'u' || *c == 'x' || *c == 'X' || *c == '%')
@@ -40,7 +40,7 @@ char	*ft_parser(char *s, va_list argptr, new_list *list)
 	printf("%d,", list->minus);
 	printf("%d,", list->width);
 	printf("%d,", list->precison);
-	printf("%d,,", list->zero);
+	printf("%d,,", list->zero);	
 	*/
 	return (s);
 }
