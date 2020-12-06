@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 06:29:17 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/05 20:16:46 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/06 15:48:58 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_flag_dot(char *s, va_list argptr, new_list *list)
 			list->precison += (*s - '0');
 			s++;
 		}
-		(list->precison == 0) ? (list->dot = 2) : (list->dot = 0);
+		list->dot = 1;
 		s--;
 	}
 	return (s);

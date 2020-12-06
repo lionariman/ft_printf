@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 17:46:58 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/05 19:29:20 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/06 17:06:42 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ char	*ft_parser(char *s, va_list argptr, new_list *list)
 			s = ft_flag_dot(s, argptr, list);
 		if (*s == '*' && list->precison == 0)
 			list->width = va_arg(argptr, int);
-		if (ft_isdigit(*s) && list->precison == 0)
+		if (ft_isdigit(*s) && list->precison == 0 && list->dot == 0)
 			s = ft_flag_num(s, list);
 		s++;
 	}
-	/*
+/*
 	printf("%d,", list->minus);
 	printf("%d,", list->width);
 	printf("%d,", list->precison);
 	printf("%d,,", list->zero);	
-	*/
+*/
 	return (s);
 }

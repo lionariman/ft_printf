@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/05 20:09:36 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/06 17:14:25 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_printf(const char *s, ...)
 	va_end(argptr);
 	return (i);
 }
-
+/*
 int		main(void)
 {
 	int number_one;
@@ -60,8 +60,9 @@ int		main(void)
 	number_one = 1;
 	number_two = 2;
 	s = "Excusez-moi\n";
-	i = printf("---> %08d <---\n",  -34);
+	i = printf("---> %5d <---\n", 0);
 	printf("%d\n", i);
-	i = ft_printf("---> %08d <---\n",  -34);
+	i = ft_printf("---> %5d <---\n", 0);
 	printf("%d\n", i);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 18:59:47 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/05 20:02:32 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/06 17:15:05 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,31 @@ static int		ft_with_len(int j)
 	return (i);
 }
 
-static int		ft_dec_neg(int j, int len, new_list *list)
+static int		ft_dec_neg(int j, int len, new_list *list, int elem)
 {
 	list->type = -list->type;
-	list->precison -= len - 1;
-	j += write(1, "-", 1);
-	while (list->precison > 0)
+	if (list->zero == 1 && list->precison == 0 && list->dot != 0)
 	{
-		j += write(1, "0", 1);
-		list->precison -= 1;
+		elem -= len;
+		while (elem > 0)
+		{
+			j += write(1, " ", 1);
+			elem -= 1;
+		}
+		j += write(1, "-", 1);
+		ft_putnbr_fd(list->type, 1);
 	}
-	ft_putnbr_fd(list->type, 1);
+	else
+	{
+		(list->zero == 1 && list->type <= 0)? (elem -= len) : (elem -= len - 1);
+		j += write(1, "-", 1);
+		while (elem > 0)
+		{
+			j += write(1, "0", 1);
+			elem -= 1;
+		}
+		ft_putnbr_fd(list->type, 1);
+	}
 	j += len - 1;
 	return (j);
 }
@@ -60,9 +74,9 @@ static int		ft_prec(int j, int len, new_list *list)
 	return (j);
 }
 
-static int		ft_width(int j, new_list *list)
+static int		ft_width(int j, int len, new_list *list)
 {
-	if (list->zero == 1 && list->precison == 0)
+	if (list->zero == 1 && list->precison == 0 && list->type >= 0 && list->dot == 0)
 	{
 		while (list->width > 0)
 		{
@@ -70,6 +84,8 @@ static int		ft_width(int j, new_list *list)
 			list->width -= 1;
 		}
 	}
+	else if (list->zero == 1 && list->precison == 0 && list->type < 0)
+		j = ft_dec_neg(j, len, list, list->width);
 	else
 	{
 		while (list->width > 0)
@@ -89,48 +105,48 @@ int		ft_dec_type(va_list argptr, new_list *list)
 	j = 0;
 	list->type = va_arg(argptr, int);
 	len = ft_with_len(list->type);
-	if (list->minus == 0)//there isn't a minus in the structure
+	if (list->minus == 0)
 	{
-		if (list->width != 0 && list->precison != 0)//with and precision
+		if (list->width != 0 && list->precison != 0)
 		{
 			if (list->width > len && list->precison > len)
 			{
 				if (list->width > list->precison)
 				{
 					list->width -= list->precison;
-					if (list->type < 0)//check minus
+					if (list->type < 0)
 					{
 						list->width -= 1;
-						j = ft_width(j, list);
-						j = ft_dec_neg(j, len, list);
+						j = ft_width(j, len, list);
+						j = ft_dec_neg(j, len, list, list->precison);
 					}
 					else
 					{
-						j = ft_width(j, list);
+						j = ft_width(j, len, list);
 						j = ft_prec(j, len, list);
 					}
 				}
 				else
 				{
-					if (list->type < 0)//check minus
-						j = ft_dec_neg(j, len, list);
+					if (list->type < 0)
+						j = ft_dec_neg(j, len, list, list->precison);
 					else
 						j = ft_prec(j, len, list);
 				}
 			}
 			else if (list->width <= len && list->precison > len)
 			{
-				if (list->type < 0)//check minus
-					j = ft_dec_neg(j, len, list);
+				if (list->type < 0)
+					j = ft_dec_neg(j, len, list, list->precison);
 				else
 					j = ft_prec(j, len, list);	
 			}
 			else if (list->width > len && list->precison <= len)
 			{
 				list->width -= len;
-				j = ft_width(j, list);
-				ft_putnbr_fd(list->type, 1);
+				j = ft_width(j, len, list);
 				j += len;
+				ft_putnbr_fd(list->type, 1);
 			}
 			else
 			{
@@ -138,14 +154,24 @@ int		ft_dec_type(va_list argptr, new_list *list)
 				j += len;
 			}
 		}
-		else if (list->width != 0 && list->precison == 0)//width
+		else if (list->width != 0 && list->precison == 0)
 		{
 			if (list->width > len)
 			{
-				list->width -= len;
-				j = ft_width(j, list);
-				ft_putnbr_fd(list->type, 1);
-				j += len;
+				if (list->zero == 1 && list->precison == 0 && list->type < 0)
+				{
+					list->width -= len - 2;
+					j = ft_width(j, len, list);
+				}
+				else
+				{
+					if (list->type == 0 && list->dot == 1)
+						return (j = ft_width(j, len, list));
+					list->width -= len;
+					j = ft_width(j, len, list);
+					ft_putnbr_fd(list->type, 1);
+					j += len;
+				}
 			}
 			else
 			{
@@ -153,12 +179,12 @@ int		ft_dec_type(va_list argptr, new_list *list)
 				j += len;
 			}
 		}
-		else if (list->precison != 0 && list->width == 0)//precision
+		else if (list->precison != 0 && list->width == 0)
 		{
 			if (list->precison > len && list->type >= 0)
 				j = ft_prec(j, len, list);
-			else if (list->precison > len && list->type < 0)//for negative numbers
-				j = ft_dec_neg(j, len, list);//check minus
+			else if (list->precison > len && list->type < 0)
+				j = ft_dec_neg(j, len, list, list->precison);
 			else
 			{
 				ft_putnbr_fd(list->type, 1);
@@ -173,38 +199,39 @@ int		ft_dec_type(va_list argptr, new_list *list)
 			j += len;
 		}
 	}
-	else if (list->minus == 1)//there is a minus in the structure
+	else if (list->minus == 1)
 	{
-		if (list->width != 0 && list->precison != 0)//width and precision
+		if (list->width != 0 && list->precison != 0)
 		{
 			if (list->width > len && list->precison > len)
 			{
 				if (list->width > list->precison)
 				{
 					list->width -= list->precison;
-					if (list->type < 0)//check minus
+					if (list->type < 0)
 					{
 						list->width -= 1;
-						j = ft_dec_neg(j, len, list);
+						j = ft_dec_neg(j, len, list, list->precison);
+						j = ft_width(j, len, list);
 					}
 					else
 					{
 						j = ft_prec(j, len, list);
-						j = ft_width(j, list);
+						j = ft_width(j, len, list);
 					}
 				}
 				else
 				{
-					if (list->type < 0)//check minus
-						j = ft_dec_neg(j, len, list);
+					if (list->type < 0)
+						j = ft_dec_neg(j, len, list, list->precison);
 					else
 						j = ft_prec(j, len, list);
 				}
 			}
 			else if (list->width <= len && list->precison > len)
 			{
-				if (list->type < 0)//check minus
-					j = ft_dec_neg(j, len, list);
+				if (list->type < 0)
+					j = ft_dec_neg(j, len, list, list->precison);
 				else
 					j = ft_prec(j, len, list);
 			}
@@ -213,7 +240,7 @@ int		ft_dec_type(va_list argptr, new_list *list)
 				list->width -= len;
 				ft_putnbr_fd(list->type, 1);
 				j += len;
-				j = ft_width(j, list);
+				j = ft_width(j, len, list);
 			}
 			else
 			{
@@ -221,14 +248,16 @@ int		ft_dec_type(va_list argptr, new_list *list)
 				j += len;
 			}
 		}
-		else if (list->width != 0 && list->precison == 0)//width
+		else if (list->width != 0 && list->precison == 0)
 		{
 			if (list->width > len)
 			{
+				if (list->type == 0 && list->dot == 1)
+					return (j = ft_width(j, len, list));
 				list->width -= len;
 				ft_putnbr_fd(list->type, 1);
 				j += len;
-				j = ft_width(j, list);
+				j = ft_width(j, len, list);
 			}
 			else
 			{
@@ -236,12 +265,12 @@ int		ft_dec_type(va_list argptr, new_list *list)
 				j += len;
 			}
 		}
-		else if (list->precison != 0 && list->width == 0)//precision
+		else if (list->precison != 0 && list->width == 0)
 		{
 			if (list->precison > len && list->type >= 0)
 				j = ft_prec(j, len, list);
-			else if (list->precison > len && list->type < 0)//for negative numbers
-				j = ft_dec_neg(j, len, list);//check minus
+			else if (list->precison > len && list->type < 0)
+				j = ft_dec_neg(j, len, list, list->precison);
 			else
 			{
 				ft_putnbr_fd(list->type, 1);
