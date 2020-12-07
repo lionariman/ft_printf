@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/06 17:14:25 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/07 23:16:59 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,21 @@ int		ft_printf(const char *s, ...)
 	va_end(argptr);
 	return (i);
 }
-/*
-int		main(void)
-{
-	int number_one;
-	int number_two;
-	int i;
-	char *s;
 
-	number_one = 1;
-	number_two = 2;
-	s = "Excusez-moi\n";
-	i = printf("---> %5d <---\n", 0);
-	printf("%d\n", i);
-	i = ft_printf("---> %5d <---\n", 0);
-	printf("%d\n", i);
-}
-*/
+// int		main(void)
+// {
+// 	int number_one;
+// 	int number_two;
+// 	int i;
+// 	char *s;
+
+// 	number_one = 1;
+// 	number_two = 2;
+// 	s = "Excusez-moi\n";
+// 	i = printf("---> %.03s <---\n", NULL);
+// 	printf("%d\n", i);
+// 	i = ft_printf("---> %.03s <---\n", NULL);
+// 	printf("%d\n", i);
+// }
+
+//com ft_dec_type.c ft_dec_type_utils.c ft_flags.c ft_parser.c ft_printf.c ft_processor.c ft_str_type.c ft_type_char.c libft/libft.a && ./a.out

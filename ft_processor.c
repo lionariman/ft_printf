@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 09:54:59 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/06 20:55:49 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/07 16:50:30 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int		ft_processor(char *s, va_list argptr, new_list *list)
 		j = ft_dec_type(argptr, list);
 	if (*s == 'u')
 		j = ft_dec_type(argptr, list);
+	if (*s == 's')
+		j = ft_str_type(argptr, list);
 	return (j);
 }

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 17:46:58 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/06 20:54:49 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/07 22:37:40 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,11 @@ char	*ft_parser(char *s, va_list argptr, new_list *list)
 			s = ft_flag_num(s, list);
 		s++;
 	}
+
+	// printf("%d,", list->width);
+	// printf("%d,", list->precison);
+	// printf("%d,", list->minus);
+	// printf("%d,", list->zero);
+
 	return (s);
 }

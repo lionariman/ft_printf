@@ -41,4 +41,6 @@ int			ft_dec_1_0(int j, int len, new_list *list);
 int			ft_dec_1_1(int j, int len, new_list *list);
 int			ft_dec_1_2(int j, int len, new_list *list);
 
+int			ft_str_type(va_list argptr, new_list *list);
+
 #endif
