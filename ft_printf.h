@@ -43,4 +43,11 @@ int			ft_dec_1_2(int j, int len, new_list *list);
 
 int			ft_str_type(va_list argptr, new_list *list);
 
+int			ft_hex_type(va_list argptr, new_list *list);
+int			ft_hex_one(int j, int len, new_list *list);
+int			ft_hex_two(int j, int len, new_list *list);
+int			ft_hex_prec(int j, int len, new_list *list);
+int			ft_dec_hex_neg(int j, int len, new_list *list, int elem);
+int			ft_xputnbr(int xx, int f, int j);
+
 #endif

@@ -6,7 +6,7 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/07 14:18:50 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/08 15:37:24 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,11 @@ SRCS =	ft_flags.c \
 		ft_printf.c \
 		ft_processor.c \
 		ft_type_char.c \
-		ft_dec_type.c \
 		ft_str_type.c \
+		ft_dec_type.c \
 		ft_dec_type_utils.c \
+		ft_hex_type.c \
+		ft_hex_type_utils.c \
 			 
 OBJS = $(SRCS:.c=.o)
 

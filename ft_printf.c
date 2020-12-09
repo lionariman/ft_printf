@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/07 23:16:59 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/09 13:37:39 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ int		ft_printf(const char *s, ...)
 	return (i);
 }
 
-// int		main(void)
-// {
-// 	int number_one;
-// 	int number_two;
-// 	int i;
-// 	char *s;
+int		main(void)
+{
+	int number_one;
+	int number_two;
+	int i;
+	char *s;
 
-// 	number_one = 1;
-// 	number_two = 2;
-// 	s = "Excusez-moi\n";
-// 	i = printf("---> %.03s <---\n", NULL);
-// 	printf("%d\n", i);
-// 	i = ft_printf("---> %.03s <---\n", NULL);
-// 	printf("%d\n", i);
-// }
+	number_one = 1;
+	number_two = 2;
+	s = "Excusez-moi\n";
+	i = printf("p---> %-6.5x <---\n", 5);
+	printf("%d\n", i);
+	i = ft_printf("x---> %-6.5x <---\n", 5);
+	printf("%d\n", i);
+}
 
-//com ft_dec_type.c ft_dec_type_utils.c ft_flags.c ft_parser.c ft_printf.c ft_processor.c ft_str_type.c ft_type_char.c libft/libft.a && ./a.out
+//com ft_dec_type.c ft_dec_type_utils.c ft_flags.c ft_parser.c ft_printf.c ft_processor.c ft_str_type.c ft_type_char.c ft_hex_type.c ft_hex_type_utils.c libft/libft.a && ./a.out | cat -e
