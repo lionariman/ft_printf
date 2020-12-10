@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_type.c                                      :+:      :+:    :+:   */
+/*   ft_ptr_type.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/08 12:01:15 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 17:06:03 by keuclide         ###   ########.fr       */
+/*   Created: 2020/12/09 16:54:09 by keuclide          #+#    #+#             */
+/*   Updated: 2020/12/10 14:03:18 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_with_hex_len(int j)
+int		ft_with_ptr_len(long long int j)
 {
 	int i;
 
-	i = 0;
+	i = 2;
 	if (j == 0)
-		return (1);
+		return (i + 1);
 	else if (j < 0)
 		j = -j;
 	while (j > 0)
@@ -29,56 +29,57 @@ int		ft_with_hex_len(int j)
 	return (i);
 }
 
-int		ft_dec_hex_neg(int j, int len, new_list *list, int elem)
+int		ft_dec_ptr_neg(int j, int len, new_list *list, int elem)
 {
 	list->type = -list->type;
 	if (list->zero == 1 && list->precison == 0 && list->dot != 0)
 	{
 		elem -= len;
-		while (elem > 0)
-		{
+		while (elem-- > 0)
 			j += write(1, " ", 1);
-			elem -= 1;
-		}
-		j = ft_xputnbr(list->type, list->hex, j);
+		j = ft_pputnbr(list->type, list->hex, j, list);
 	}
 	else
 	{
 		(list->zero == 1 && list->type <= 0) ?
 		(elem -= len) : (elem -= len - 1);
 		j += write(1, "-", 1);
-		while (elem > 0)
-		{
+		while (elem-- > 0)
 			j += write(1, "0", 1);
-			elem -= 1;
-		}
-		j = ft_xputnbr(list->type, list->hex, j);
+		j = ft_pputnbr(list->type, list->hex, j, list);
 	}
 	j += len - 1;
 	return (j);
 }
 
-int		ft_hex_prec(int j, int len, new_list *list)
+int		ft_ptr_prec(int j, int len, new_list *list)
 {
 	list->precison -= len;
+	if (list->type >= 0)
+	{
+		list->p = 0;
+		(list->width == 0) ? (list->precison += 1) : 0;
+		list->precison += 2;
+		j += write(1, "0x", 2);
+	}
 	while (list->precison > 0)
 	{
 		j += write(1, "0", 1);
 		list->precison -= 1;
 	}
-	j = ft_xputnbr(list->type, list->hex, j);
+	j = ft_pputnbr(list->type, list->hex, j, list);
 	return (j);
 }
 
-int		ft_xputnbr(int xx, int f, int j)
+int		ft_pputnbr(long long int xx, int f, int j, new_list *list)
 {
-	unsigned int	x = xx;
+	long long int	x = xx;
 	char			c;
 	char			str[30];
 	int				i;
 
 	i = 0;
-	(x == 0) ? (j += write(1, "0", 1)) : 0;
+	(list->p == 1) ? (j += write(1, "0x", 2)) : 0;
 	while (x)
 	{
 		if ((x % 16 >= 10) && f == 0)
@@ -93,21 +94,22 @@ int		ft_xputnbr(int xx, int f, int j)
 	}
 	while (i > 0)
 		j += write(1, &str[--i], 1);
+	(xx == 0 && !list->dot) ? (j += write(1, "0", 1)) : 0;
 	return (j);
 }
 
-int		ft_hex_type(va_list argptr, new_list *list, char *s)
+int		ft_ptr_type(va_list argptr, new_list *list)
 {
 	int j;
 	int len;
 
 	j = 0;
-	list->type = va_arg(argptr, int);
-	len = ft_with_hex_len(list->type);
-	(*s == 'X') ? (list->hex = 1) : 0;
+	len = 2;
+	list->type = va_arg(argptr, long long int);
+	len = ft_with_ptr_len(list->type);
 	if (list->minus == 0)
-		j = ft_hex_one(j, len, list);
+		j = ft_ptr_one(j, len, list);
 	else if (list->minus == 1)
-		j = ft_hex_two(j, len, list);
+		j = ft_ptr_two(j, len, list);
 	return (j);
 }

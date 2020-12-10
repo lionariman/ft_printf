@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 18:59:47 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 13:35:35 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/10 15:05:03 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_with_len(int j)
+int		ft_with_len(long long int j)
 {
 	int i;
 
@@ -39,9 +39,7 @@ int		ft_dec_neg(int j, int len, new_list *list, int elem)
 	{
 		elem -= len;
 		while (elem-- > 0)
-		{
 			j += write(1, " ", 1);
-		}
 		j += write(1, "-", 1);
 		ft_putnbr_fd(list->type, 1);
 	}
@@ -51,9 +49,7 @@ int		ft_dec_neg(int j, int len, new_list *list, int elem)
 		(elem -= len) : (elem -= len - 1);
 		j += write(1, "-", 1);
 		while (elem-- > 0)
-		{
 			j += write(1, "0", 1);
-		}
 		ft_putnbr_fd(list->type, 1);
 	}
 	j += len - 1;
@@ -97,13 +93,16 @@ int		ft_width(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_dec_type(va_list argptr, new_list *list)
+int		ft_dec_type(va_list argptr, new_list *list, char *s)
 {
 	int j;
 	int len;
 
 	j = 0;
-	list->type = va_arg(argptr, int);
+	if (*s == 'u')
+		list->type = va_arg(argptr, long);
+	else
+		list->type = va_arg(argptr, int);
 	len = ft_with_len(list->type);
 	if (list->minus == 0)
 		j = ft_one(j, len, list);

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 13:37:39 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/10 15:05:56 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ new_list	list_flag_type(void)
 	flag.precison = 0;
 	flag.minus = 0;
 	flag.zero = 0;
+	flag.hex = 0;
+	flag.p = 1;
 
 	return (flag);
 }
@@ -57,12 +59,12 @@ int		main(void)
 	int i;
 	char *s;
 
-	number_one = 1;
+	number_one = 1234;
 	number_two = 2;
 	s = "Excusez-moi\n";
-	i = printf("p---> %-6.5x <---\n", 5);
+	i = printf("z---> %u <---\n", 4294967295u);
 	printf("%d\n", i);
-	i = ft_printf("x---> %-6.5x <---\n", 5);
+	i = ft_printf("x---> %u <---\n", 4294967295u);
 	printf("%d\n", i);
 }
 

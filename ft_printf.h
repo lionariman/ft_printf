@@ -8,12 +8,14 @@
 
 typedef struct	the_list
 {
-	int			type;
-	int			width;
-	int			dot;
-	int			precison;
-	int			minus;
-	int			zero;
+	long long int	type;
+	int				width;
+	int				dot;
+	int				precison;
+	int				minus;
+	int				zero;
+	int				hex;
+	int				p;
 }				new_list;
 
 int			ft_printf(const char *string, ...);
@@ -26,11 +28,12 @@ int			ft_processor(char *s, va_list argptr, new_list *list);
 int			ft_char_type(va_list argptr, new_list *list);
 int			ft_istype(char *c);
 
-int			ft_dec_type(va_list argptr, new_list *list);
+int			ft_dec_type(va_list argptr, new_list *list, char *s);
 int			ft_width(int j, int len, new_list *list);
 int			ft_prec(int j, int len, new_list *list);
 int			ft_dec_neg(int j, int len, new_list *list, int elem);
-int			ft_with_len(int j);
+int			ft_with_len(long long int j);
+
 
 int			ft_one(int j, int len, new_list *list);
 int			ft_two(int j, int len, new_list *list);
@@ -43,11 +46,18 @@ int			ft_dec_1_2(int j, int len, new_list *list);
 
 int			ft_str_type(va_list argptr, new_list *list);
 
-int			ft_hex_type(va_list argptr, new_list *list);
+int			ft_hex_type(va_list argptr, new_list *list, char *s);
+int			ft_dec_hex_neg(int j, int len, new_list *list, int elem);
+int			ft_hex_prec(int j, int len, new_list *list);
+int			ft_xputnbr(int xx, int f, int j);
 int			ft_hex_one(int j, int len, new_list *list);
 int			ft_hex_two(int j, int len, new_list *list);
-int			ft_hex_prec(int j, int len, new_list *list);
-int			ft_dec_hex_neg(int j, int len, new_list *list, int elem);
-int			ft_xputnbr(int xx, int f, int j);
+
+int			ft_ptr_type(va_list argptr, new_list *list);
+int			ft_dec_ptr_neg(int j, int len, new_list *list, int elem);
+int			ft_ptr_prec(int j, int len, new_list *list);
+int			ft_pputnbr(long long int xx, int f, int j, new_list *list);
+int			ft_ptr_one(int j, int len, new_list *list);
+int			ft_ptr_two(int j, int len, new_list *list);
 
 #endif
