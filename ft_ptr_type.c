@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:09 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 17:16:33 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/12 19:44:12 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		ft_pputnbr(long long int xx, int f, int j, new_list *list)
 
 	i = 0;
 	x = xx;
-	(list->p == 1) ? (j += write(1, "0x", 2)) : 0;
+	(list->p && !list->zero) ? (j += write(1, "0x", 2)) : 0;
 	while (x)
 	{
 		if ((x % 16 >= 10) && f == 0)

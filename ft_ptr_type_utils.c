@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 17:52:24 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/10 03:09:50 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/12 22:24:56 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,17 @@ int		ft_ptr_0_2(int j, int len, new_list *list)
 		else
 		{
 			list->width -= len;
-			if (list->type == 0 && list->dot == 1)
-			  	list->width += 1;
+			(list->type == 0 && list->dot == 1) ? (list->width += 1) : 0;
+			(list->zero) ? (j = write(1, "0x", 2)) : 0;
 			j = ft_width(j, len, list);
 			j = ft_pputnbr(list->type, list->hex, j, list);
 		}
 	}
 	else
+	{
+		(list->zero) ? (j = write(1, "0x", 2)) : 0;
 		j = ft_pputnbr(list->type, list->hex, j, list);
+	}
 	return (j);
 }
 
@@ -138,13 +141,16 @@ int		ft_ptr_1_2(int j, int len, new_list *list)
 	if (list->width > len)
 	{
 		list->width -= len;
-		if (list->type == 0 && list->dot == 1)
-		 	list->width += 1;
+		(list->type == 0 && list->dot == 1) ? (list->width += 1) : 0;
+		(list->zero) ? (j = write(1, "0x", 2)) : 0;
 		j = ft_pputnbr(list->type, list->hex, j, list);
 		j = ft_width(j, len, list);
 	}
 	else
+	{
+		(list->zero) ? (j = write(1, "0x", 2)) : 0;
 		j = ft_pputnbr(list->type, list->hex, j, list);
+	}
 	return (j);
 }
 
@@ -154,7 +160,7 @@ int		ft_ptr_one(int j, int len, new_list *list)
 		j = ft_ptr_0_0(j, len, list);
 	else if (list->width != 0 && list->precison == 0)
 		j = ft_ptr_0_2(j, len, list);
-	else if (list->dot != 0 && list->width == 0)//precision has been changed dot
+	else if (list->dot != 0 && list->width == 0)
 	{
 		if (list->precison > len && list->type >= 0)
 			j = ft_ptr_prec(j, len, list);

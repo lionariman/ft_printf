@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 19:44:03 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 17:03:32 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 01:42:05 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int		ft_dec_0_1(int j, int len, new_list *list)
 
 int		ft_dec_0_0(int j, int len, new_list *list)
 {
-	if (list->width > len && list->precison > len)
+	if (list->width > len && list->precison >= len)
 		j = ft_dec_0_1(j, len, list);
-	else if (list->width <= len && list->precison > len)
+	else if (list->width <= len && list->precison >= len)
 	{
 		if (list->type < 0)
 			j = ft_dec_neg(j, len, list, list->precison);
@@ -122,9 +122,9 @@ int		ft_dec_1_1(int j, int len, new_list *list)
 
 int		ft_dec_1_0(int j, int len, new_list *list)
 {
-	if (list->width > len && list->precison > len)
+	if (list->width > len && list->precison >= len)
 		j = ft_dec_1_1(j, len, list);
-	else if (list->width <= len && list->precison > len)
+	else if (list->width <= len && list->precison >= len)
 	{
 		if (list->type < 0)
 			j = ft_dec_neg(j, len, list, list->precison);
@@ -176,7 +176,7 @@ int		ft_one(int j, int len, new_list *list)
 	{
 		if (list->precison > len && list->type >= 0)
 			j = ft_prec(j, len, list);
-		else if (list->precison > len && list->type < 0)
+		else if (list->precison >= len && list->type < 0)
 			j = ft_dec_neg(j, len, list, list->precison);
 		else
 		{
@@ -204,7 +204,7 @@ int		ft_two(int j, int len, new_list *list)
 	{
 		if (list->precison > len && list->type >= 0)
 			j = ft_prec(j, len, list);
-		else if (list->precison > len && list->type < 0)
+		else if (list->precison >= len && list->type < 0)
 			j = ft_dec_neg(j, len, list, list->precison);
 		else
 		{
