@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 13:44:30 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 16:59:16 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/11 16:58:32 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,17 @@ static int		ft_write_prec(int j, char *str, new_list *list)
 		ft_putchar_fd(*str, 1);
 		list->precison -= 1;
 		str++;
+	}
+	if (list->precison < 0)
+	{
+		ft_putstr_fd(str, 1);
+		if (list->width)
+		{
+			list->width -= (int)ft_strlen(str) + (list->precison *= -1);
+			j += (int)ft_strlen(str) + list->precison;
+		}
+		else
+			j += (int)ft_strlen(str) + (list->precison *= -1);
 	}
 	return (j);
 }
@@ -151,6 +162,12 @@ int		ft_str_type(va_list argptr, new_list *list)
 	save = 0;
 	str = va_arg(argptr, char *);
 	str == NULL ? (str = "(null)") : 0;
+	if (list->width < 0)
+	{
+		list->width = -list->width;
+		list->minus = 1;
+	}
+	//(list->width && list->precison < 0) ? (list->precison *= -1) : 0;
 	if (list->minus == 0)
 	{
 		if (list->width > (int)ft_strlen(str))

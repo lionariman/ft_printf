@@ -3,6 +3,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
+# include <limits.h>
 # include <unistd.h>
 # include "libft/libft.h"
 
@@ -59,5 +60,7 @@ int			ft_ptr_prec(int j, int len, new_list *list);
 int			ft_pputnbr(long long int xx, int f, int j, new_list *list);
 int			ft_ptr_one(int j, int len, new_list *list);
 int			ft_ptr_two(int j, int len, new_list *list);
+
+int			ft_prc_type(new_list *list);
 
 #endif

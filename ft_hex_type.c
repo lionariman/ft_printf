@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 12:01:15 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 17:06:03 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/10 16:12:32 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,11 @@ int		ft_hex_type(va_list argptr, new_list *list, char *s)
 	list->type = va_arg(argptr, int);
 	len = ft_with_hex_len(list->type);
 	(*s == 'X') ? (list->hex = 1) : 0;
+	if (list->width < 0)
+	{
+		list->width = -list->width;
+		list->minus = 1;
+	}
 	if (list->minus == 0)
 		j = ft_hex_one(j, len, list);
 	else if (list->minus == 1)

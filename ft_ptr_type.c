@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:09 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/10 14:03:18 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/10 16:12:15 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,11 @@ int		ft_ptr_type(va_list argptr, new_list *list)
 	len = 2;
 	list->type = va_arg(argptr, long long int);
 	len = ft_with_ptr_len(list->type);
+	if (list->width < 0)
+	{
+		list->width = -list->width;
+		list->minus = 1;
+	}
 	if (list->minus == 0)
 		j = ft_ptr_one(j, len, list);
 	else if (list->minus == 1)

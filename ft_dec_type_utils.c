@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 19:44:03 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/10 14:57:33 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:46:15 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int		ft_dec_0_2(int j, int len, new_list *list)
 	}
 	else
 	{
-		ft_putnbr_fd(list->type, 1);
+		(list->type == 0 && list->dot) ?
+		(write(1, " ", 1)) : ft_putnbr_fd(list->type, 1);
 		j += len;
 	}
 	return (j);
@@ -161,7 +162,8 @@ int		ft_dec_1_2(int j, int len, new_list *list)
 	}
 	else
 	{
-		ft_putnbr_fd(list->type, 1);
+		(list->type == 0 && list->dot) ?
+		(write(1, " ", 1)) : ft_putnbr_fd(list->type, 1);
 		j += len;
 	}
 	return (j);

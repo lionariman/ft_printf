@@ -6,9 +6,30 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:24 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 17:58:53 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/11 13:59:31 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int		ft_prc_type(new_list *list)
+{
+	int j;
+
+	j = 0;
+	list->width -= 1;
+	(list->minus) ? (list->zero = 0) : 0;
+	(list->minus) ? (j += write(1, "%", 1)) : 0;
+	if (list->zero == 1)
+	{
+		while (list->width-- > 0)
+			j += write(1, "0", 1);
+	}
+	if (list->zero == 0)
+	{
+		while (list->width-- > 0)
+			j += write(1, " ", 1);
+	}
+	(!list->minus) ? (j += write(1, "%", 1)) : 0;
+	return (j);
+}

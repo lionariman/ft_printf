@@ -6,13 +6,13 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/09 18:00:19 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/12 15:24:39 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-INC = ft_print.h
+INC = ft_printf.h
 
 LIBA = ./libft/libft.a
 
@@ -28,6 +28,7 @@ SRCS =	ft_flags.c \
 		ft_hex_type_utils.c \
 		ft_ptr_type.c \
 		ft_ptr_type_utils.c \
+		ft_prc_type.c \
 			 
 OBJS = $(SRCS:.c=.o)
 
