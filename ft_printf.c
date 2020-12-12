@@ -57,20 +57,20 @@ int		ft_printf(const char *s, ...)
 
 int		main(void)
 {
-	int		x = 0;
+	// int		x = 0;
     int     a = -4;
     // int     b = 0;
-    char    c = 'a';
-    int     d = 2147483647;
-    int     e = -2147483648;
-    // int     f = 42;
+    // char    c = 'a';
+    // int     d = 2147483647;
+    // int     e = -2147483648;
+    // // int     f = 42;
     // int     g = 25;
     // int     h = 4200;
-    int     i = 8;
+    // int     i = 8;
     int     j = -12;
-    int     k = 123456789;
-    int     l = 0;
-    int     m = -12345678;
+    // int     k = 123456789;
+    // int     l = 0;
+    // int     m = -12345678;
     // char    *n = "abcdefghijklmnop";
     // char    *o = "-a";
     // char    *p = "-12";
@@ -79,20 +79,9 @@ int		main(void)
     // char    *s = "-2147483648";
     // char    *t = "0x12345678";
     // char    *u = "-0";
-	// printf("z---> %d\n", printf("z---> %*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("x---> %d\n", ft_printf("x---> %*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("z---> %d\n", printf("z---> %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("x---> %d\n", ft_printf("x---> %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("z---> %d\n", printf("z---> %-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("x---> %d\n", ft_printf("x---> %-*i, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d, %-*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("z---> %d\n", printf("z---> %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	// printf("x---> %d\n", ft_printf("x---> %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-	while (x < 5)
-	{
-	//	printf("z---> %d\n", printf("z---> %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-		printf("x---> %d\n", ft_printf("x---> %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d));
-		x++;
-	}
+
+	printf("z---> %d\n", printf("z---> %.*d <---\n", a, j));
+	printf("x---> %d\n", ft_printf("x---> %.*d <---\n", a, j));
 }
 
 //com ft_dec_type.c ft_dec_type_utils.c ft_flags.c ft_parser.c ft_printff.c ft_processor.c ft_str_type.c ft_type_char.c ft_hex_type.c ft_hex_type_utils.c libft/libft.a && ./a.out | cat -e

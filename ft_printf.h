@@ -34,16 +34,14 @@ int			ft_width(int j, int len, new_list *list);
 int			ft_prec(int j, int len, new_list *list);
 int			ft_dec_neg(int j, int len, new_list *list, int elem);
 int			ft_with_len(long long int j);
-
-
 int			ft_one(int j, int len, new_list *list);
 int			ft_two(int j, int len, new_list *list);
-int			ft_dec_0_0(int j, int len, new_list *list);
-int			ft_dec_0_1(int j, int len, new_list *list);
-int			ft_dec_0_2(int j, int len, new_list *list);
-int			ft_dec_1_0(int j, int len, new_list *list);
-int			ft_dec_1_1(int j, int len, new_list *list);
-int			ft_dec_1_2(int j, int len, new_list *list);
+// int			ft_dec_0_0(int j, int len, new_list *list);
+// int			ft_dec_0_1(int j, int len, new_list *list);
+// int			ft_dec_0_2(int j, int len, new_list *list);
+// int			ft_dec_1_0(int j, int len, new_list *list);
+// int			ft_dec_1_1(int j, int len, new_list *list);
+// int			ft_dec_1_2(int j, int len, new_list *list);
 
 int			ft_str_type(va_list argptr, new_list *list);
 

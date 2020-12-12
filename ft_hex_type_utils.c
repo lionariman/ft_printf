@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 12:56:40 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/09 16:57:33 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/12 17:03:55 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,27 @@
 
 int		ft_hex_0_1(int j, int len, new_list *list)
 {
-	if (list->width > len && list->precison > len)
+	if (list->width > list->precison)
 	{
-		if (list->width > list->precison)
+		list->width -= list->precison;
+		if (list->type < 0)
 		{
-			list->width -= list->precison;
-			if (list->type < 0)
-			{
-				list->width -= 1;
-				j = ft_width(j, len, list);
-				j = ft_dec_hex_neg(j, len, list, list->precison);
-			}
-			else
-			{
-				j = ft_width(j, len, list);
-				j = ft_hex_prec(j, len, list);
-			}
+			list->width -= 1;
+			j = ft_width(j, len, list);
+			j = ft_dec_hex_neg(j, len, list, list->precison);
 		}
 		else
 		{
-			if (list->type < 0)
-				j = ft_dec_hex_neg(j, len, list, list->precison);
-			else
-				j = ft_hex_prec(j, len, list);
+			j = ft_width(j, len, list);
+			j = ft_hex_prec(j, len, list);
 		}
+	}
+	else
+	{
+		if (list->type < 0)
+			j = ft_dec_hex_neg(j, len, list, list->precison);
+		else
+			j = ft_hex_prec(j, len, list);
 	}
 	return (j);
 }

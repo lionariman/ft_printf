@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 13:44:30 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/11 16:58:32 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/12 17:15:06 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,12 @@ static int		ft_write_wid(int j, new_list *list)
 {
 	if (list->zero == 1 && list->minus == 0)
 	{
-		while (list->width > 0)
-		{
+		while (list->width-- > 0)
 			j += write(1, "0", 1);
-			list->width -= 1;
-		}
 		return (j);
 	}
-	while (list->width > 0)
-	{
+	while (list->width-- > 0)
 		j += write(1, " ", 1);
-		list->width -= 1;
-	}
 	return (j);
 }
 

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:09 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/10 16:12:15 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/12 17:16:33 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,21 @@ int		ft_ptr_prec(int j, int len, new_list *list)
 		list->precison += 2;
 		j += write(1, "0x", 2);
 	}
-	while (list->precison > 0)
-	{
+	while (list->precison-- > 0)
 		j += write(1, "0", 1);
-		list->precison -= 1;
-	}
 	j = ft_pputnbr(list->type, list->hex, j, list);
 	return (j);
 }
 
 int		ft_pputnbr(long long int xx, int f, int j, new_list *list)
 {
-	long long int	x = xx;
+	long long int	x;
 	char			c;
 	char			str[30];
 	int				i;
 
 	i = 0;
+	x = xx;
 	(list->p == 1) ? (j += write(1, "0x", 2)) : 0;
 	while (x)
 	{
