@@ -6,15 +6,17 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/13 16:39:43 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/13 17:06:05 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-INC = ft_printf.h
+INC = ft_header/
 
 LIBA = ./libft/libft.a
+
+VPATH = ft_main ft_types ft_utils
 
 SRCS =	ft_flags.c \
 		ft_printf.c \
