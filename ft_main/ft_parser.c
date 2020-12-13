@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 17:46:58 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/11 19:51:46 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:35:07 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_istype(char *c)
 	return (0);
 }
 
-char	*ft_parser(char *s, va_list argptr, new_list *list)
+char	*ft_parser(char *s, va_list argptr, t_list *list)
 {
 	while (*s)
 	{
@@ -47,12 +47,5 @@ char	*ft_parser(char *s, va_list argptr, new_list *list)
 			break ;
 		s++;
 	}
-
-	// printf("%d,", list->dot);
-	// printf("%d,", list->width);
-	// printf("%d,", list->precison);
-	// printf("%d,", list->minus);
-	// printf("%d\n", list->zero);
-
 	return (s);
 }

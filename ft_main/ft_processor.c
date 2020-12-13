@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 09:54:59 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/11 18:38:09 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:35:42 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_processor(char *s, va_list argptr, new_list *list)
+int		ft_processor(char *s, va_list argptr, t_list *list)
 {
 	int j;
 
@@ -26,8 +26,8 @@ int		ft_processor(char *s, va_list argptr, new_list *list)
 	if (*s == 's')
 		j = ft_str_type(argptr, list);
 	if (*s == 'p')
-	 	j = ft_ptr_type(argptr, list);
+		j = ft_ptr_type(argptr, list);
 	if (*s == '%')
-	  	j = ft_prc_type(list);
+		j = ft_prc_type(list);
 	return (j);
 }

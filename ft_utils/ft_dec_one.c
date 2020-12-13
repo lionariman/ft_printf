@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 16:22:12 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:49:46 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:38:02 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_dec_0_1(int j, int len, new_list *list)
+int		ft_dec_0_1(int j, int len, t_list *list)
 {
 	if (list->width > list->precison)
 	{
@@ -39,7 +39,7 @@ int		ft_dec_0_1(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_dec_0_0(int j, int len, new_list *list)
+int		ft_dec_0_0(int j, int len, t_list *list)
 {
 	if (list->width > len && list->precison >= len)
 		j = ft_dec_0_1(j, len, list);
@@ -65,7 +65,7 @@ int		ft_dec_0_0(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_dec_0_2(int j, int len, new_list *list)
+int		ft_dec_0_2(int j, int len, t_list *list)
 {
 	if (list->width > len)
 	{
@@ -93,7 +93,7 @@ int		ft_dec_0_2(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_one(int j, int len, new_list *list)
+int		ft_one(int j, int len, t_list *list)
 {
 	if (list->width != 0 && list->precison != 0)
 		j = ft_dec_0_0(j, len, list);

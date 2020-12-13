@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:24 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/11 13:59:31 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:37:02 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_prc_type(new_list *list)
+int		ft_prc_type(t_list *list)
 {
 	int j;
 

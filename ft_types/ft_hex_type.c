@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 12:01:15 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 17:20:10 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:36:46 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_with_hex_len(unsigned int j)
 	return (i);
 }
 
-int		ft_dec_hex_neg(int j, int len, new_list *list, int elem)
+int		ft_dec_hex_neg(int j, int len, t_list *list, int elem)
 {
 	list->type = -list->type;
 	if (list->zero == 1 && list->precison == 0 && list->dot != 0)
@@ -50,7 +50,7 @@ int		ft_dec_hex_neg(int j, int len, new_list *list, int elem)
 	return (j);
 }
 
-int		ft_hex_prec(int j, int len, new_list *list)
+int		ft_hex_prec(int j, int len, t_list *list)
 {
 	list->precison -= len;
 	while (list->precison-- > 0)
@@ -86,7 +86,7 @@ int		ft_xputnbr(int xx, int f, int j)
 	return (j);
 }
 
-int		ft_hex_type(va_list argptr, new_list *list, char *s)
+int		ft_hex_type(va_list argptr, t_list *list, char *s)
 {
 	int j;
 	int len;

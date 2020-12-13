@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 16:28:02 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:28:05 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:36:05 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_char_type(va_list argptr, new_list *list)
+int		ft_char_type(va_list argptr, t_list *list)
 {
 	int j;
 

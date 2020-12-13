@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 18:59:47 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:42:25 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:36:23 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_with_len(long long int j)
 	return (i);
 }
 
-int		ft_dec_neg(int j, int len, new_list *list, int elem)
+int		ft_dec_neg(int j, int len, t_list *list, int elem)
 {
 	list->type = -list->type;
 	if (list->zero && !list->precison && list->dot)
@@ -56,7 +56,7 @@ int		ft_dec_neg(int j, int len, new_list *list, int elem)
 	return (j);
 }
 
-int		ft_prec(int j, int len, new_list *list)
+int		ft_prec(int j, int len, t_list *list)
 {
 	list->precison -= len;
 	while (list->precison-- > 0)
@@ -66,7 +66,7 @@ int		ft_prec(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_dec_type(va_list argptr, new_list *list, char *s)
+int		ft_dec_type(va_list argptr, t_list *list, char *s)
 {
 	int j;
 	int len;

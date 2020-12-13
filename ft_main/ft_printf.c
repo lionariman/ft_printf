@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printff.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 22:27:42 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:44:15 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <limits.h>
 
-new_list	list_flag_type(void)
+t_list		list_flag_type(void)
 {
-	new_list flag;
+	t_list list;
 
-	flag.type = 0;
-	flag.dot = 0;
-	flag.width = 0;
-	flag.precison = 0;
-	flag.minus = 0;
-	flag.zero = 0;
-	flag.hex = 0;
-	flag.p = 1;
-
-	return (flag);
+	list.type = 0;
+	list.dot = 0;
+	list.width = 0;
+	list.precison = 0;
+	list.minus = 0;
+	list.zero = 0;
+	list.hex = 0;
+	list.p = 1;
+	return (list);
 }
 
-int		ft_printf(const char *s, ...)
+int			ft_printf(const char *s, ...)
 {
 	va_list		argptr;
-	new_list	list;
+	t_list		list;
 	int			i;
 
 	i = 0;

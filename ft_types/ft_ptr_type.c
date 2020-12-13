@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:09 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 19:44:12 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:37:27 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_with_ptr_len(long long int j)
 	return (i);
 }
 
-int		ft_dec_ptr_neg(int j, int len, new_list *list, int elem)
+int		ft_dec_ptr_neg(int j, int len, t_list *list, int elem)
 {
 	list->type = -list->type;
 	if (list->zero == 1 && list->precison == 0 && list->dot != 0)
@@ -52,7 +52,7 @@ int		ft_dec_ptr_neg(int j, int len, new_list *list, int elem)
 	return (j);
 }
 
-int		ft_ptr_prec(int j, int len, new_list *list)
+int		ft_ptr_prec(int j, int len, t_list *list)
 {
 	list->precison -= len;
 	if (list->type >= 0)
@@ -68,7 +68,7 @@ int		ft_ptr_prec(int j, int len, new_list *list)
 	return (j);
 }
 
-int		ft_pputnbr(long long int xx, int f, int j, new_list *list)
+int		ft_pputnbr(long long int xx, int f, int j, t_list *list)
 {
 	long long int	x;
 	char			c;
@@ -96,7 +96,7 @@ int		ft_pputnbr(long long int xx, int f, int j, new_list *list)
 	return (j);
 }
 
-int		ft_ptr_type(va_list argptr, new_list *list)
+int		ft_ptr_type(va_list argptr, t_list *list)
 {
 	int j;
 	int len;

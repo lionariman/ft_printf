@@ -6,7 +6,7 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/13 17:06:05 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/13 18:02:52 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ FLAG = -Wall -Wextra -Werror
 	@gcc $(FLAG) -I $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@make bonus -C ./libft
+	@make -C ./libft
 	@cp $(LIBA) $(NAME)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)

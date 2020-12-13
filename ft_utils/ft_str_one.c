@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 16:30:21 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:36:17 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:39:32 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_str_0_0(int j, int save, char *str, new_list *list)
+int		ft_str_0_0(int j, int save, char *str, t_list *list)
 {
 	if (list->precison > 0 && list->precison < (int)ft_strlen(str))
 	{
@@ -31,7 +31,7 @@ int		ft_str_0_0(int j, int save, char *str, new_list *list)
 	return (j);
 }
 
-int		ft_str_0_1(int j, int save, char *str, new_list *list)
+int		ft_str_0_1(int j, int save, char *str, t_list *list)
 {
 	if (list->dot == 1 && list->precison >= 0)
 	{
@@ -46,7 +46,7 @@ int		ft_str_0_1(int j, int save, char *str, new_list *list)
 	return (j);
 }
 
-int		ft_str_0_2(int j, int save, char *str, new_list *list)
+int		ft_str_0_2(int j, int save, char *str, t_list *list)
 {
 	if (list->dot == 1 && list->precison < (int)ft_strlen(str))
 	{
@@ -59,7 +59,7 @@ int		ft_str_0_2(int j, int save, char *str, new_list *list)
 	return (j);
 }
 
-int		ft_str_one(int j, int save, char *str, new_list *list)
+int		ft_str_one(int j, int save, char *str, t_list *list)
 {
 	if (list->width > (int)ft_strlen(str))
 		j = ft_str_0_0(j, save, str, list);

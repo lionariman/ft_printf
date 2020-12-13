@@ -6,20 +6,20 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 06:29:17 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:42:27 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:35:26 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_flag_minus(char *s, new_list *list)
+char	*ft_flag_minus(char *s, t_list *list)
 {
 	list->minus = 1;
 	list->zero = 0;
 	return (s);
 }
 
-char	*ft_flag_dot(char *s, va_list argptr, new_list *list)
+char	*ft_flag_dot(char *s, va_list argptr, t_list *list)
 {
 	s++;
 	list->dot = 1;
@@ -40,7 +40,7 @@ char	*ft_flag_dot(char *s, va_list argptr, new_list *list)
 	return (s);
 }
 
-char	*ft_flag_num(char *s, new_list *list)
+char	*ft_flag_num(char *s, t_list *list)
 {
 	while (ft_isdigit(*s))
 	{
@@ -52,7 +52,7 @@ char	*ft_flag_num(char *s, new_list *list)
 	return (s);
 }
 
-int		ft_width(int j, int len, new_list *list)
+int		ft_width(int j, int len, t_list *list)
 {
 	if (list->zero == 1 && list->precison == 0 &&
 	list->type >= 0 && list->dot == 0)

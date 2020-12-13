@@ -6,13 +6,13 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 13:44:30 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 16:53:37 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 17:37:45 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_write_wid(int j, new_list *list)
+int		ft_write_wid(int j, t_list *list)
 {
 	if (list->zero == 1 && list->minus == 0)
 	{
@@ -25,7 +25,7 @@ int		ft_write_wid(int j, new_list *list)
 	return (j);
 }
 
-int		ft_write_prec(int j, char *str, new_list *list)
+int		ft_write_prec(int j, char *str, t_list *list)
 {
 	if (list->precison > (int)ft_strlen(str))
 	{
@@ -52,7 +52,7 @@ int		ft_write_prec(int j, char *str, new_list *list)
 	return (j);
 }
 
-int		ft_str_type(va_list argptr, new_list *list)
+int		ft_str_type(va_list argptr, t_list *list)
 {
 	char	*str;
 	int		j;
