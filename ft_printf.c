@@ -57,27 +57,27 @@ int		main(void)
 	// char *line;
 
 	// line = "hello";
-    int     a = -4;
-    int     b = 0;
-    char    c = 'a';
-    int     d = 2147483647;
-    int     e = -2147483648;
-    int     f = 42;
-    int     g = 25;
-    int     h = 4200;
-    int     i = 8;
-    int     j = -12;
-    int     k = 123456789;
-    int     l = 0;
-    int     m = -12345678;
-    char    *n = "abcdefghijklmnop";
-    char    *o = "-a";
-    char    *p = "-12";
-    char    *q = "0";
-    char    *r = "%%";
-    char    *s = "-2147483648";
-    char    *t = "0x12345678";
-    char    *u = "-0";
+    // int     a = -4;
+    // int     b = 0;
+    // char    c = 'a';
+    // int     d = 2147483647;
+    // int     e = -2147483648;
+    // int     f = 42;
+    // int     g = 25;
+    // int     h = 4200;
+    // int     i = 8;
+    // int     j = -12;
+    // int     k = 123456789;
+    // int     l = 0;
+    // int     m = -12345678;
+    // char    *n = "abcdefghijklmnop";
+    // char    *o = "-a";
+    // char    *p = "-12";
+    // char    *q = "0";
+    // char    *r = "%%";
+    // char    *s = "-2147483648";
+    // char    *t = "0x12345678";
+    // char    *u = "-0";
 	// while (a < 5)
 	// {
 	// 	b = -2;
@@ -92,12 +92,12 @@ int		main(void)
 
 	// printf("z---> %d\n", printf("z---> {%%20.*s}|* = 0|*|{%020.*s}\n", -5, "42"));
 	// printf("x---> %d\n", ft_printf("x---> {%%20.*s}|* = 0|*|{%020.*s}\n", -5, "42"));
-	while (a < 5)
-	{
-		printf("z---> %d\n", printf("z---> %-*s <---\n", a, q));
-		printf("x---> %d\n", ft_printf("x---> %-*s <---\n", a, q));
-		a++;
-	}
+	// while (a < 5)
+	// {
+		printf("z---> %d\n", printf("z---> %*.*x <---\n", -1, 0, 0));
+		printf("x---> %d\n\n", ft_printf("x---> %*.*x <---\n", -1, 0, 0));
+	// 	a++;
+	// }
 }
 
 //com ft_dec_type.c ft_dec_type_utils.c ft_flags.c ft_parser.c ft_printff.c ft_processor.c ft_str_type.c ft_type_char.c ft_hex_type.c ft_hex_type_utils.c libft/libft.a && ./a.out | cat -e

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 13:44:30 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/12 17:15:06 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 04:23:08 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int		ft_write_prec(int j, char *str, new_list *list)
 
 int		ft_str_0_0(int j, int save, char *str, new_list *list)
 {
-	if (list->precison != 0 && list->precison < (int)ft_strlen(str))
+	if (list->precison > 0 && list->precison < (int)ft_strlen(str))
 	{
 		list->width -= list->precison;
 		j += ft_write_wid(j, list);
@@ -73,7 +73,7 @@ int		ft_str_0_0(int j, int save, char *str, new_list *list)
 
 int		ft_str_0_1(int j, int save, char *str, new_list *list)
 {
-	if (list->dot == 1)
+	if (list->dot == 1 && list->precison >= 0)
 	{
 		list->width -= list->precison;
 		j = ft_write_wid(j, list);
@@ -161,7 +161,6 @@ int		ft_str_type(va_list argptr, new_list *list)
 		list->width = -list->width;
 		list->minus = 1;
 	}
-	//(list->width && list->precison < 0) ? (list->precison *= -1) : 0;
 	if (list->minus == 0)
 	{
 		if (list->width > (int)ft_strlen(str))
