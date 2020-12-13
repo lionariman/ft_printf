@@ -6,7 +6,7 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/12 15:24:39 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/13 16:39:43 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,22 @@ INC = ft_printf.h
 LIBA = ./libft/libft.a
 
 SRCS =	ft_flags.c \
-		ft_parser.c \
 		ft_printf.c \
+		ft_parser.c \
 		ft_processor.c \
-		ft_type_char.c \
+		ft_char_type.c \
 		ft_str_type.c \
+		ft_str_one.c \
+		ft_str_two.c \
 		ft_dec_type.c \
-		ft_dec_type_utils.c \
+		ft_dec_one.c \
+		ft_dec_two.c \
 		ft_hex_type.c \
-		ft_hex_type_utils.c \
+		ft_hex_one.c \
+		ft_hex_two.c \
 		ft_ptr_type.c \
-		ft_ptr_type_utils.c \
+		ft_ptr_one.c \
+		ft_ptr_two.c \
 		ft_prc_type.c \
 			 
 OBJS = $(SRCS:.c=.o)

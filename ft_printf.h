@@ -28,22 +28,20 @@ new_list	list_flag_type(void);
 int			ft_processor(char *s, va_list argptr, new_list *list);
 int			ft_char_type(va_list argptr, new_list *list);
 int			ft_istype(char *c);
+int			ft_width(int j, int len, new_list *list);
 
 int			ft_dec_type(va_list argptr, new_list *list, char *s);
-int			ft_width(int j, int len, new_list *list);
 int			ft_prec(int j, int len, new_list *list);
 int			ft_dec_neg(int j, int len, new_list *list, int elem);
 int			ft_with_len(long long int j);
 int			ft_one(int j, int len, new_list *list);
 int			ft_two(int j, int len, new_list *list);
-// int			ft_dec_0_0(int j, int len, new_list *list);
-// int			ft_dec_0_1(int j, int len, new_list *list);
-// int			ft_dec_0_2(int j, int len, new_list *list);
-// int			ft_dec_1_0(int j, int len, new_list *list);
-// int			ft_dec_1_1(int j, int len, new_list *list);
-// int			ft_dec_1_2(int j, int len, new_list *list);
 
 int			ft_str_type(va_list argptr, new_list *list);
+int			ft_write_wid(int j, new_list *list);
+int			ft_write_prec(int j, char *str, new_list *list);
+int			ft_str_one(int j, int save, char *str, new_list *list);
+int			ft_str_two(int j, int save, char *str, new_list *list);
 
 int			ft_hex_type(va_list argptr, new_list *list, char *s);
 int			ft_dec_hex_neg(int j, int len, new_list *list, int elem);

@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 06:29:17 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/11 14:50:44 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 16:42:27 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,24 @@ char	*ft_flag_num(char *s, new_list *list)
 	}
 	s--;
 	return (s);
+}
+
+int		ft_width(int j, int len, new_list *list)
+{
+	if (list->zero == 1 && list->precison == 0 &&
+	list->type >= 0 && list->dot == 0)
+		while (list->width-- > 0)
+			j += write(1, "0", 1);
+	else if (list->zero == 1 && list->precison == 0 && list->type < 0)
+		j = ft_dec_neg(j, len, list, list->width);
+	else if (list->precison < 0 && list->zero == 1)
+	{
+		(list->type < 0) ? ((write(1, "-", 1)) && (list->type *= -1)) : 0;
+		while (list->width-- > 0)
+			j += write(1, "0", 1);
+	}
+	else
+		while (list->width-- > 0)
+			j += write(1, " ", 1);
+	return (j);
 }
