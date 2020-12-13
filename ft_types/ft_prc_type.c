@@ -6,7 +6,7 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:54:24 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 17:37:02 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 20:57:28 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,11 @@ int		ft_prc_type(t_list *list)
 	(list->minus) ? (list->zero = 0) : 0;
 	(list->minus) ? (j += write(1, "%", 1)) : 0;
 	if (list->zero == 1)
-	{
 		while (list->width-- > 0)
 			j += write(1, "0", 1);
-	}
 	if (list->zero == 0)
-	{
 		while (list->width-- > 0)
 			j += write(1, " ", 1);
-	}
 	(!list->minus) ? (j += write(1, "%", 1)) : 0;
 	return (j);
 }

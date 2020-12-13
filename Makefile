@@ -6,7 +6,7 @@
 #    By: keuclide <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 14:04:37 by keuclide          #+#    #+#              #
-#    Updated: 2020/12/13 18:02:52 by keuclide         ###   ########.fr        #
+#    Updated: 2020/12/13 19:34:30 by keuclide         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ clean:
 
 fclean: clean
 	@make fclean -C ./libft
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) a.out
 	@echo "Libftprint.a and binaries has been removed"
 
 re: fclean all

@@ -6,11 +6,12 @@
 /*   By: keuclide <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 21:45:45 by keuclide          #+#    #+#             */
-/*   Updated: 2020/12/13 17:44:15 by keuclide         ###   ########.fr       */
+/*   Updated: 2020/12/13 20:42:24 by keuclide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 t_list		list_flag_type(void)
 {
