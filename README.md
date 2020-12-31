@@ -12,6 +12,7 @@ C) displaying UTF-8 characters. (%C and %S).
 D) computing unsigned numbers in base 2 (%b), 8 (%o), 10 (%u) and 16 (%x).
 E) displaying signed numbers (%d %D %i).
 F) displaying pointer address (%p).
+
 Bonus:
 
 A) At 140% of libc printf speed thanks to buffer addition and functions' optimization.
