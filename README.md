@@ -1,5 +1,8 @@
 # PRINTF Project
 
+## Sources
+* https://linux.die.net/man/3/printf
+
 ## Project Overview
 PRINTF is a 42 Project that aims to mimic libc printf function
 
