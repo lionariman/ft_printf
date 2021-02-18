@@ -13,15 +13,3 @@ Basics, requested from subject:
 * D) computing unsigned numbers in base 2 (%b), 8 (%o), 10 (%u) and 16 (%x).
 * E) displaying signed numbers (%d %D %i).
 * F) displaying pointer address (%p).
-
-Bonus:
-* A) <strong>At 140% of libc printf speed</strong> thanks to buffer addition and functions' optimization.
-* B) Handles multi fd (use ft_dprintf(int fd, char const format, ...) instead of ft_printf).
-* C) <strong>All flags stored on only 14 bits.</strong>
-* D) wildcard_length_modifier (%*) : replaces precision and field_width with parameter in va_list ap.
-* E) print_len with %n (refer to ft_printf.c : *va_arg(ap, int *) = p->len;).
-* F) displaying errno with %m.
-* G) colors with '%s' and then for example PF_BLUE.
-* H) %f and %F to handle double and float numbers.
-* I) %a and %A to handle hexadecimal double numbers (rather pointless...).
-* J) Also returns the string only with ft_sprintf.
